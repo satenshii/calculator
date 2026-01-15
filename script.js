@@ -55,8 +55,13 @@ const updateDisplay = (content) => {
 const keyboardOperatorButtons = document.querySelectorAll(".operator");
 
 const onOperatorClick = (e) => {
+    if (secondNumber) {
+        equalsButton.click();
+        updateDisplay(firstNumber);
+    } else {
+        updateDisplay(e.target.textContent);
+    }
     operator = e.target.id;
-    updateDisplay(e.target.textContent);
 }
 
 keyboardOperatorButtons.forEach((button) => button.addEventListener("click", onOperatorClick));
