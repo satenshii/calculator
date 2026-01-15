@@ -117,3 +117,10 @@ const onDotButtonClick = (e) => {
 dotButton.addEventListener("click", onDotButtonClick);
 
 const roundNumber = (num) => Math.round(num * 1000) / 1000;
+
+const clearButton = document.querySelector("#clear-button");
+
+clearButton.addEventListener("click", () => {
+    reset();
+    updateDisplay("0");
+})
