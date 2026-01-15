@@ -1,9 +1,14 @@
+* {
+    font-family: inherit;
+}
+
 body {
     display: flex;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
     margin: 0;
+    font-family: "Zalando Sans Expanded", sans-serif;
 }
 
 .calculator {
