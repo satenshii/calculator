@@ -82,7 +82,8 @@ const calculate = (chained) => {
     if (!operator || !secondNumber) {
         return;
     }
-    const result = operate(operator, Number(firstNumber), Number(secondNumber));
+    const result = roundNumber(operate(operator, Number(firstNumber), Number(secondNumber)));
+    console.log(result);
     if (Number.isNaN(result)) {
         updateDisplay("Invalid Operation");
         reset();
@@ -114,3 +115,5 @@ const onDotButtonClick = (e) => {
 }
 
 dotButton.addEventListener("click", onDotButtonClick);
+
+const roundNumber = (num) => Math.round(num * 1000) / 1000;
