@@ -1,0 +1,26 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.calculator {
+    display: flex;
+    flex-direction: column;
+}
+
+.keyboard {
+    display: flex;
+    flex-direction: column;
+}
+
+.keyboard .row {
+    display: flex;
+}
+
+.keyboard .row button {
+    flex-basis: 0;
+    flex-grow: 1;
+}
