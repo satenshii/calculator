@@ -4,7 +4,7 @@ const subtract = (a, b) => a - b;
 const multiply = (a, b) => a * b;
 const divide = (a, b) => {
     if (b === 0) {
-        return null;
+        return undefined;
     }
     return a / b;
 }
@@ -24,7 +24,7 @@ const operate = (op, a, b) => {
         case "divide":
             return divide(a, b);
         default:
-            return null;
+            return undefined;
     }
 }
 
@@ -60,3 +60,29 @@ const onOperatorClick = (e) => {
 }
 
 keyboardOperatorButtons.forEach((button) => button.addEventListener("click", onOperatorClick));
+
+const equalsButton = document.querySelector("#equals");
+
+const reset = () => {
+    firstNumber = "";
+    secondNumber = "";
+    operator = "";
+}
+
+const onEqualsClick = (e) => {
+    if (!operator || !secondNumber) {
+        return;
+    }
+    const result = operate(operator, Number(firstNumber), Number(secondNumber));
+    if (Number.isNaN(result)) {
+        updateDisplay("Invalid Operation");
+        reset();
+        return;
+    }
+    firstNumber = String(result);
+    secondNumber = "";
+    operator = "";
+    updateDisplay(result);
+}
+
+equalsButton.addEventListener("click", onEqualsClick);
