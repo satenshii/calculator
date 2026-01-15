@@ -12,3 +12,18 @@ const divide = (a, b) => {
 const firstNumber = "";
 const operator = "";
 const secondNumber = "";
+
+const operate = (op, a, b) => {
+    switch (op) {
+        case "add":
+            return add(a, b);
+        case "subtract":
+            return subtract(a, b);
+        case "multiply":
+            return multiply(a, b);
+        case "divide":
+            return divide(a, b);
+        default:
+            return null;
+    }
+}
