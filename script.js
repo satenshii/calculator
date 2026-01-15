@@ -9,9 +9,9 @@ const divide = (a, b) => {
     return a / b;
 }
 
-const firstNumber = "";
-const operator = "";
-const secondNumber = "";
+let firstNumber = "";
+let operator = "";
+let secondNumber = "";
 
 const operate = (op, a, b) => {
     switch (op) {
@@ -27,3 +27,27 @@ const operate = (op, a, b) => {
             return null;
     }
 }
+
+const keyboardNumberButtons = document.querySelectorAll(".number");
+
+const onNumberClick = (e) => {
+    if (operator) {
+        secondNumber += e.target.textContent;
+        updateDisplay(secondNumber);
+    } else {
+        firstNumber += e.target.textContent;
+        updateDisplay(firstNumber);
+    }
+}
+
+
+keyboardNumberButtons.forEach((button) => {
+    button.addEventListener("click", onNumberClick);
+})
+
+
+const displayContent = document.querySelector(".result");
+
+const updateDisplay = (content) => {
+    displayContent.textContent = content;
+}   
