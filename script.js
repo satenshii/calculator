@@ -50,4 +50,13 @@ const displayContent = document.querySelector(".result");
 
 const updateDisplay = (content) => {
     displayContent.textContent = content;
-}   
+}
+
+const keyboardOperatorButtons = document.querySelectorAll(".operator");
+
+const onOperatorClick = (e) => {
+    operator = e.target.id;
+    updateDisplay(e.target.textContent);
+}
+
+keyboardOperatorButtons.forEach((button) => button.addEventListener("click", onOperatorClick));
