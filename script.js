@@ -96,3 +96,21 @@ const calculate = (chained) => {
 }
 
 equalsButton.addEventListener("click", onEqualsClick);
+
+
+const dotButton = document.querySelector("#dot");
+
+const onDotButtonClick = (e) => {
+    if (operator && !secondNumber.includes(".")) {
+        secondNumber += ".";
+        updateDisplay(secondNumber);
+        return;
+    }
+
+    if (!firstNumber.includes(".")) {
+        firstNumber += ".";
+        updateDisplay(firstNumber);
+    }
+}
+
+dotButton.addEventListener("click", onDotButtonClick);
