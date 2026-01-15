@@ -38,6 +38,7 @@ const onNumberClick = (e) => {
         firstNumber += e.target.textContent;
         updateDisplay(firstNumber);
     }
+    scrollDisplay();
 }
 
 
@@ -124,3 +125,9 @@ clearButton.addEventListener("click", () => {
     reset();
     updateDisplay("0");
 })
+
+const scrollDisplay = () => {
+    if (displayContent.scrollWidth > displayContent.clientWidth) {
+        displayContent.scrollLeft = displayContent.scrollWidth;
+    }
+}

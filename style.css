@@ -36,6 +36,10 @@ body {
     border-radius: 20px;
 }
 
+.display .result {
+    overflow-x: hidden;
+}
+
 .keyboard {
     flex-grow: 1;
     display: flex;
