@@ -56,7 +56,7 @@ const keyboardOperatorButtons = document.querySelectorAll(".operator");
 
 const onOperatorClick = (e) => {
     if (secondNumber) {
-        equalsButton.click();
+        calculate(true);
         updateDisplay(firstNumber);
     } else {
         updateDisplay(e.target.textContent);
@@ -75,6 +75,10 @@ const reset = () => {
 }
 
 const onEqualsClick = (e) => {
+    calculate(false);
+}
+
+const calculate = (chained) => {
     if (!operator || !secondNumber) {
         return;
     }
@@ -84,9 +88,10 @@ const onEqualsClick = (e) => {
         reset();
         return;
     }
-    firstNumber = String(result);
-    secondNumber = "";
-    operator = "";
+    reset();
+    if (chained) {
+        firstNumber = String(result);
+    }
     updateDisplay(result);
 }
 
